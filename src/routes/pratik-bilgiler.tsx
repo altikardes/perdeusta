@@ -3,7 +3,7 @@ import { createFileRoute } from '@tanstack/react-router'
 export const Route = createFileRoute('/pratik-bilgiler')({
   head: () => ({
     meta: [
-      { title: 'Pratik Bilgiler | Perde Seçimi ve Korniş Montajı Rehberi' },
+      { title: 'Pratik Bilgiler | Perde Seçimi ve Korniş Montajı | PerdeUsta' },
       {
         name: 'description',
         content:

@@ -1,6 +1,7 @@
 import { HeadContent, Outlet, createRootRoute } from '@tanstack/react-router'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
+import { SITE_ORIGIN, absoluteSiteUrl } from '@/lib/site'
 
 import '../styles.css'
 
@@ -10,7 +11,7 @@ const localBusinessSchema = {
   name: 'PerdeUsta - İstanbul Perde & Korniş Montaj',
   description:
     'İstanbul\'da profesyonel perde montajı, korniş kurulumu, stor perde, jaluzi, tül perde ve zebra perde hizmetleri. 20 yıllık deneyim, garantili işçilik.',
-  url: 'https://perdeusta.netlify.app',
+  url: SITE_ORIGIN,
   telephone: '+905309264830',
   address: {
     '@type': 'PostalAddress',
@@ -42,37 +43,46 @@ const localBusinessSchema = {
     'Bağcılar', 'Başakşehir', 'Bakırköy', 'Küçükçekmece', 'Arnavutköy',
   ],
   priceRange: '₺₺',
-  image: 'https://perdeusta.netlify.app/logo.png',
+  image: `${SITE_ORIGIN}/logo.png`,
 }
 
 export const Route = createRootRoute({
-  head: () => ({
-    meta: [
-      { charSet: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { title: 'PerdeUsta - İstanbul Perde & Korniş Montaj Uzmanı' },
-      {
-        name: 'description',
-        content:
-          'İstanbul\'da profesyonel perde montajı, korniş kurulumu, stor perde, jaluzi ve zebra perde hizmetleri. Halkalı, Başakşehir, Bakırköy ve tüm İstanbul\'a hizmet. Ücretsiz keşif!',
-      },
-      { name: 'robots', content: 'index, follow' },
-      { property: 'og:type', content: 'website' },
-      { property: 'og:site_name', content: 'PerdeUsta' },
-      { property: 'og:title', content: 'PerdeUsta - İstanbul Perde & Korniş Montaj Uzmanı' },
-      {
-        property: 'og:description',
-        content: 'İstanbul\'da güvenilir perde montajı ve korniş kurulumu. 20 yıllık deneyim, garantili işçilik, ücretsiz keşif.',
-      },
-      { name: 'twitter:card', content: 'summary_large_image' },
-    ],
-    scripts: [
-      {
-        type: 'application/ld+json',
-        children: JSON.stringify(localBusinessSchema),
-      },
-    ],
-  }),
+  head: (ctx) => {
+    const leaf = ctx.matches[ctx.matches.length - 1]
+    const pathname = leaf?.pathname ?? '/'
+    const pageUrl = absoluteSiteUrl(pathname)
+    return {
+      links: [{ rel: 'canonical', href: pageUrl }],
+      meta: [
+        { charSet: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { title: 'PerdeUsta - İstanbul Perde & Korniş Montaj Uzmanı' },
+        {
+          name: 'description',
+          content:
+            'İstanbul\'da profesyonel perde montajı, korniş kurulumu, stor perde, jaluzi ve zebra perde hizmetleri. Halkalı, Başakşehir, Bakırköy ve tüm İstanbul\'a hizmet. Ücretsiz keşif!',
+        },
+        { name: 'author', content: 'PerdeUsta' },
+        { name: 'robots', content: 'index, follow' },
+        { property: 'og:type', content: 'website' },
+        { property: 'og:site_name', content: 'PerdeUsta' },
+        { property: 'og:url', content: pageUrl },
+        { property: 'og:title', content: 'PerdeUsta - İstanbul Perde & Korniş Montaj Uzmanı' },
+        {
+          property: 'og:description',
+          content: 'İstanbul\'da güvenilir perde montajı ve korniş kurulumu. 20 yıllık deneyim, garantili işçilik, ücretsiz keşif.',
+        },
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:url', content: pageUrl },
+      ],
+      scripts: [
+        {
+          type: 'application/ld+json',
+          children: JSON.stringify(localBusinessSchema),
+        },
+      ],
+    }
+  },
   component: RootComponent,
 })
 

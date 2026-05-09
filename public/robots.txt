@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://halkalikornis.com.tr/sitemap.xml
+Sitemap: https://perdeusta.com/sitemap.xml

@@ -145,8 +145,8 @@ function IletisimPage() {
                 <span className="text-3xl">✉️</span>
                 <div>
                   <h3 className="font-bold text-[#1A2E4A] mb-1">E-posta</h3>
-                  <a href="mailto:info@halkalikornis.com.tr" className="text-blue-600 hover:text-blue-800 no-underline font-medium">
-                    info@halkalikornis.com.tr
+                  <a href="mailto:info@perdeusta.com" className="text-blue-600 hover:text-blue-800 no-underline font-medium">
+                    info@perdeusta.com
                   </a>
                 </div>
               </div>

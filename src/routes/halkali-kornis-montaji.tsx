@@ -1,5 +1,6 @@
 import { Link, createFileRoute } from '@tanstack/react-router'
 import { buildFaqSchema } from '@/lib/seo-schema'
+import { SITE_ORIGIN } from '@/lib/site'
 
 const faqItems = [
   {
@@ -27,7 +28,8 @@ const faqItems = [
 const localBusinessSchema = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
-  name: 'Halkalı Korniş ve Perde Montaj Hizmeti',
+  name: 'PerdeUsta – Halkalı perde ve korniş montajı',
+  url: `${SITE_ORIGIN}/halkali-kornis-montaji`,
   telephone: '+905309264830',
   areaServed: ['Halkalı, Istanbul'],
   serviceType: 'curtain and cornice installation',
@@ -36,13 +38,13 @@ const localBusinessSchema = {
 export const Route = createFileRoute('/halkali-kornis-montaji')({
   head: () => ({
     meta: [
-      { title: 'Halkalı Korniş Montajı ve Perde Montaj Hizmeti' },
+      { title: 'Halkalı Perde ve Korniş Montajı | PerdeUsta' },
       {
         name: 'description',
         content:
           'Halkalı korniş montajı ve halkalı perde montajı hizmetinde aynı gün servis, garantili işçilik ve profesyonel uygulama. Korniş ustası Halkalı bölgesinde hızlı keşif ve net çözüm.',
       },
-      { property: 'og:title', content: 'Halkalı Korniş Montajı ve Perde Montaj Hizmeti' },
+      { property: 'og:title', content: 'Halkalı Perde ve Korniş Montajı | PerdeUsta' },
       {
         property: 'og:description',
         content:
@@ -86,7 +88,7 @@ function HalkaliKornisMontajiPage() {
               Küçükçekmece / Halkalı Yerel Hizmet
             </p>
             <h1 className="mb-6 text-4xl font-extrabold tracking-tight leading-tight md:text-5xl lg:text-6xl">
-              Halkalı Korniş Montajı ve Perde Montaj Hizmeti
+              Halkalı Perde ve Korniş Montajı | PerdeUsta
             </h1>
             <p className="max-w-xl text-base leading-relaxed text-blue-100/90 md:text-lg">
               Halkalı korniş montajı ve halkalı perde montajı hizmetinde uzmanlaşmış yerel ekibimiz, korniş ustası halkalı

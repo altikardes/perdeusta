@@ -65,8 +65,8 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="mailto:info@halkalikornis.com.tr" className="flex items-center gap-2 text-blue-200 hover:text-white no-underline">
-                  <span>✉️</span> info@halkalikornis.com.tr
+                <a href="mailto:info@perdeusta.com" className="flex items-center gap-2 text-blue-200 hover:text-white no-underline">
+                  <span>✉️</span> info@perdeusta.com
                 </a>
               </li>
               <li>

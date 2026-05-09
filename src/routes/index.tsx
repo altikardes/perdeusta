@@ -3,13 +3,13 @@ import { createFileRoute } from '@tanstack/react-router'
 export const Route = createFileRoute('/')({
   head: () => ({
     meta: [
-      { title: 'Korniş ve Perde Montajı İstanbul | Hızlı Usta Hizmeti' },
+      { title: 'Korniş ve Perde Montajı İstanbul | PerdeUsta' },
       {
         name: 'description',
         content:
           'İstanbul genelinde hızlı korniş montajı ve perde montajı hizmeti. 500+ müşteri, aynı gün servis ve garantili işçilik ile Halkalı, İkitelli, Başakşehir ve çevresinde profesyonel uygulama.',
       },
-      { property: 'og:title', content: 'Korniş ve Perde Montajı İstanbul | Hızlı Usta Hizmeti' },
+      { property: 'og:title', content: 'Korniş ve Perde Montajı İstanbul | PerdeUsta' },
     ],
   }),
   component: HomePage,
@@ -73,7 +73,7 @@ function HomePage() {
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 to-transparent z-10 pointer-events-none"></div>
             <img
               src="/images/main.webp"
-              alt="Halkalı korniş ve perde montaj hizmeti"
+              alt="PerdeUsta – Halkalı perde ve korniş montaj hizmeti"
               className="h-full min-h-[280px] w-full object-cover transition-transform duration-700 group-hover:scale-105"
               loading="eager"
             />

@@ -1,5 +1,6 @@
 import { Link, createFileRoute } from '@tanstack/react-router'
 import { buildFaqSchema } from '@/lib/seo-schema'
+import { SITE_ORIGIN } from '@/lib/site'
 
 const faqItems = [
   {
@@ -28,6 +29,7 @@ const localBusinessSchema = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
   name: 'Başakşehir Perde ve Korniş Montaj Hizmeti',
+  url: `${SITE_ORIGIN}/basaksehir-perde-montaji`,
   telephone: '+905309264830',
   areaServed: ['Başakşehir, Istanbul'],
   serviceType: 'curtain and cornice installation',
@@ -36,7 +38,7 @@ const localBusinessSchema = {
 export const Route = createFileRoute('/basaksehir-perde-montaji')({
   head: () => ({
     meta: [
-      { title: 'Başakşehir Perde Montajı ve Korniş Ustası Hizmeti' },
+      { title: 'Başakşehir Perde Montajı ve Korniş Ustası | PerdeUsta' },
       {
         name: 'description',
         content:

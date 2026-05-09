@@ -2,43 +2,95 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://halkalikornis.com.tr/</loc>
+    <loc>https://perdeusta.com/</loc>
   </url>
 
   <url>
-    <loc>https://halkalikornis.com.tr/hizmetler</loc>
+    <loc>https://perdeusta.com/hizmetler</loc>
   </url>
 
   <url>
-    <loc>https://halkalikornis.com.tr/urunler</loc>
+    <loc>https://perdeusta.com/urunler</loc>
   </url>
 
   <url>
-    <loc>https://halkalikornis.com.tr/iletisim</loc>
+    <loc>https://perdeusta.com/pratik-bilgiler</loc>
   </url>
 
   <url>
-    <loc>https://halkalikornis.com.tr/pratik-bilgiler</loc>
+    <loc>https://perdeusta.com/iletisim</loc>
   </url>
 
   <url>
-    <loc>https://halkalikornis.com.tr/basaksehir-perde-montaji</loc>
+    <loc>https://perdeusta.com/hizmet-bolgeleri</loc>
   </url>
 
   <url>
-    <loc>https://halkalikornis.com.tr/ikitelli-kornis-montaji</loc>
+    <loc>https://perdeusta.com/hizmet-bolgeleri/arnavutkoy</loc>
   </url>
 
   <url>
-    <loc>https://halkalikornis.com.tr/bagcilar-perde-montaji</loc>
+    <loc>https://perdeusta.com/hizmet-bolgeleri/bagcilar</loc>
   </url>
 
   <url>
-    <loc>https://halkalikornis.com.tr/kucukcekmece-kornis-montaji</loc>
+    <loc>https://perdeusta.com/hizmet-bolgeleri/bahcelievler</loc>
   </url>
 
   <url>
-    <loc>https://halkalikornis.com.tr/bahcesehir-perde-montaji</loc>
+    <loc>https://perdeusta.com/hizmet-bolgeleri/bahcesehir</loc>
+  </url>
+
+  <url>
+    <loc>https://perdeusta.com/hizmet-bolgeleri/bakirkoy</loc>
+  </url>
+
+  <url>
+    <loc>https://perdeusta.com/hizmet-bolgeleri/basaksehir</loc>
+  </url>
+
+  <url>
+    <loc>https://perdeusta.com/hizmet-bolgeleri/halkali</loc>
+  </url>
+
+  <url>
+    <loc>https://perdeusta.com/hizmet-bolgeleri/ikitelli</loc>
+  </url>
+
+  <url>
+    <loc>https://perdeusta.com/hizmet-bolgeleri/kucukcekmece</loc>
+  </url>
+
+  <url>
+    <loc>https://perdeusta.com/hizmet-bolgeleri/zeytinburnu</loc>
+  </url>
+
+  <url>
+    <loc>https://perdeusta.com/bagcilar-perde-montaji</loc>
+  </url>
+
+  <url>
+    <loc>https://perdeusta.com/bahcesehir-perde-montaji</loc>
+  </url>
+
+  <url>
+    <loc>https://perdeusta.com/basaksehir-perde-montaji</loc>
+  </url>
+
+  <url>
+    <loc>https://perdeusta.com/halkali-kornis-montaji</loc>
+  </url>
+
+  <url>
+    <loc>https://perdeusta.com/ikitelli-kornis-montaji</loc>
+  </url>
+
+  <url>
+    <loc>https://perdeusta.com/kucukcekmece-kornis-montaji</loc>
+  </url>
+
+  <url>
+    <loc>https://perdeusta.com/products/1</loc>
   </url>
 
 </urlset>
