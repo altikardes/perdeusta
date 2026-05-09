@@ -1,78 +1,103 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { Link, createFileRoute } from '@tanstack/react-router'
+import pratikBilgilerSource from '../../content/pratik-bilgiler.md?raw'
+import { PratikBilgilerArticle } from '@/components/pratik-bilgiler/PratikBilgilerArticle'
+import { PratikBilgilerCta } from '@/components/pratik-bilgiler/PratikBilgilerCta'
+import { PratikBilgilerFaq } from '@/components/pratik-bilgiler/PratikBilgilerFaq'
+import { parsePratikBilgilerMarkdown } from '@/lib/parse-pratik-bilgiler-md'
+import { buildFaqSchema } from '@/lib/seo-schema'
+
+const parsed = parsePratikBilgilerMarkdown(pratikBilgilerSource)
+const faqSchemaJson =
+  parsed.faq.length > 0 ? JSON.stringify(buildFaqSchema(parsed.faq)) : null
 
 export const Route = createFileRoute('/pratik-bilgiler')({
   head: () => ({
     meta: [
-      { title: 'Pratik Bilgiler | Perde Seçimi ve Korniş Montajı | PerdeUsta' },
+      {
+        title:
+          'Pratik Bilgiler | Tül Seçimi, Perde Temizliği, Korniş Montajı Rehberi | PerdeUsta İstanbul',
+      },
       {
         name: 'description',
         content:
-          'Perde seçimi, perde montajı ve korniş montajı hakkında pratik bilgiler. Işık durumu, ölçü alımı, kumaş seçimi ve montaj kalitesi ile doğru tercih yapın.',
+          'Tül perde seçimi, kırışmayan tül modelleri, perde yıkama ve beyazlatma, toz alma, korniş montajı ve bakımı hakkında pratik rehber. PerdeUsta ile İstanbul’da ücretsiz keşif ve profesyonel montaj desteği.',
+      },
+      {
+        property: 'og:title',
+        content: 'Pratik Bilgiler | Tül, Perde Bakımı ve Korniş Montajı | PerdeUsta',
+      },
+      {
+        property: 'og:description',
+        content:
+          'Perde seçimi, tül bakımı, perde temizliği ve korniş montajı için adım adım bilgiler; sık sorulan sorular ve uzman desteği.',
       },
     ],
+    scripts:
+      faqSchemaJson !== null
+        ? [
+            {
+              id: 'pratik-bilgiler-faq-schema',
+              type: 'application/ld+json' as const,
+              children: faqSchemaJson,
+            },
+          ]
+        : [],
   }),
   component: PratikBilgilerPage,
 })
 
-const tips = [
-  {
-    title: 'Odanın Işık Durumu',
-    text: 'Perde seçerken odanın ne kadar ışık aldığı çok önemlidir. Güneş alan odalarda kalın kumaşlar tercih edilirken, daha az ışık alan odalarda tül perdeler daha uygun olur.',
-  },
-  {
-    title: 'Ölçü Alımı',
-    text: 'Perde montajında en sık yapılan hatalardan biri yanlış ölçüdür. Korniş genişliği ve perde uzunluğu doğru ölçülmelidir. Gerekirse profesyonel destek alınmalıdır.',
-  },
-  {
-    title: 'Kullanım Amacı',
-    text: 'Perdeyi sadece dekoratif mi yoksa ışık kesici olarak mı kullanacağınızı belirleyin. Buna göre stor, zebra veya fon perde tercih edebilirsiniz.',
-  },
-  {
-    title: 'Kumaş Seçimi',
-    text: 'Kaliteli kumaşlar daha uzun ömürlü olur ve daha iyi bir görünüm sağlar. Ucuz kumaşlar kısa sürede formunu kaybedebilir.',
-  },
-  {
-    title: 'Montaj Kalitesi',
-    text: 'Perde ne kadar kaliteli olursa olsun, montaj düzgün yapılmazsa istenilen verim alınamaz. Bu nedenle profesyonel montaj hizmeti tercih edilmelidir.',
-  },
-]
+const linkClass = 'font-semibold text-blue-200 underline-offset-2 hover:text-white hover:underline'
 
 function PratikBilgilerPage() {
   return (
     <div className="bg-slate-50">
-      <section className="bg-[#1A2E4A] px-4 py-16 text-white">
+      <section className="bg-[#1A2E4A] px-4 py-14 text-white md:py-16">
         <div className="mx-auto max-w-4xl text-center">
-          <h1 className="mb-4 text-3xl font-bold md:text-4xl">
-            Perde Seçimi ve Korniş Montajı Hakkında Pratik Bilgiler
-          </h1>
-          <p className="text-base leading-relaxed text-blue-100 md:text-lg">
-            Perde seçimi, ev dekorasyonunun en önemli parçalarından biridir. Doğru perde seçimi hem estetik hem de kullanım açısından büyük fark yaratır.
+          <h1 className="mb-5 text-3xl font-bold tracking-tight md:text-4xl">Pratik Bilgiler</h1>
+          <p className="text-base font-medium leading-relaxed text-blue-50 md:text-lg">
+            Perde seçimi, perde temizliği, tül bakımı ve korniş montajı hakkında pratik bilgiler.
+          </p>
+          {parsed.introNote ? (
+            <p className="mx-auto mt-4 max-w-3xl text-sm leading-relaxed text-blue-100/90 md:text-base">
+              {parsed.introNote}
+            </p>
+          ) : null}
+          <p className="mx-auto mt-6 max-w-2xl text-sm leading-relaxed text-blue-100/85 md:text-base">
+            Yerel hizmet bölgelerimiz ve randevu için{' '}
+            <Link to="/hizmet-bolgeleri" className={linkClass}>
+              hizmet bölgeleri
+            </Link>{' '}
+            sayfasını inceleyebilir; montaj ve keşif taleplerinizde{' '}
+            <Link to="/iletisim" className={linkClass}>
+              iletişim
+            </Link>{' '}
+            veya{' '}
+            <Link to="/halkali-kornis-montaji" className={linkClass}>
+              Halkalı korniş montajı
+            </Link>{' '}
+            içeriğimize göz atabilirsiniz.
           </p>
         </div>
       </section>
 
-      <section className="px-4 py-14 md:py-16">
-        <div className="mx-auto max-w-4xl space-y-5">
-          {tips.map((tip) => (
-            <article key={tip.title} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-              <h2 className="mb-2 text-xl font-bold text-slate-900">{tip.title}</h2>
-              <p className="text-sm leading-relaxed text-slate-600 md:text-base">{tip.text}</p>
-            </article>
-          ))}
+      <section className="px-4 py-12 md:py-16">
+        <div className="mx-auto max-w-4xl">
+          <PratikBilgilerArticle sections={parsed.sections} />
         </div>
       </section>
 
-      <section className="px-4 pb-16">
-        <div className="mx-auto max-w-4xl rounded-2xl bg-white p-6 shadow-sm md:p-8">
-          <h2 className="mb-3 text-2xl font-bold text-slate-900">Sonuç:</h2>
-          <p className="text-sm leading-relaxed text-slate-700 md:text-base">
-            Doğru perde seçimi ve profesyonel montaj, yaşam alanlarınızın konforunu ve estetiğini artırır.
-          </p>
-          <p className="mt-4 text-sm leading-relaxed text-slate-600 md:text-base">
-            Uzman desteği ile perde montajı ve korniş montajı sürecini doğru planlamak, uzun ömürlü ve şık bir kullanım için en güvenli adımdır.
-          </p>
-        </div>
-      </section>
+      {parsed.faq.length > 0 ? (
+        <section className="px-4 pb-12 md:pb-16" aria-labelledby="faq-heading">
+          <div className="mx-auto max-w-4xl">
+            <h2 id="faq-heading" className="mb-6 text-2xl font-bold text-slate-900 md:text-3xl">
+              Sık sorulan sorular
+            </h2>
+            <PratikBilgilerFaq items={parsed.faq} />
+          </div>
+        </section>
+      ) : null}
+
+      <PratikBilgilerCta />
     </div>
   )
 }
